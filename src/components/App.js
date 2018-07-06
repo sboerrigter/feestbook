@@ -8,23 +8,7 @@ export default class App extends Component {
 
     this.state = {
       input: '',
-      messages: [
-        {
-          name: 'Sjoerd',
-          content: 'Hello world',
-          opacity: .1,
-        },
-        {
-          name: 'Harold',
-          content: 'Hello to you too',
-          opacity: .5,
-        },
-        {
-          name: 'Luuk',
-          content: 'Hi there',
-          opacity: 1,
-        }
-      ],
+      messages: [],
       name: 'Sjoerd',
     }
 
@@ -49,7 +33,6 @@ export default class App extends Component {
             {
               name: this.state.name,
               content: this.state.input,
-              opacity: 1,
             }
           ]),
         }
@@ -59,11 +42,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <div
-        className="App"
-      >
+      <div>
         <Messages messages={this.state.messages} />
-
         <Speak input={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage} />
       </div>
     );
