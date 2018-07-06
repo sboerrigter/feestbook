@@ -7,26 +7,53 @@ export default class App extends Component {
     super(props);
 
     this.state = {
+      input: '',
       messages: [
         {
-          id: 1,
           name: 'Sjoerd',
           content: 'Hello world',
           opacity: .1,
         },
         {
-          id: 2,
           name: 'Harold',
           content: 'Hello to you too',
-          opacity: .5
+          opacity: .5,
         },
         {
-          id: 3,
           name: 'Luuk',
           content: 'Hi there',
-          opacity: 1
+          opacity: 1,
         }
-      ]
+      ],
+      name: 'Sjoerd',
+    }
+
+    this.updateInput = this.updateInput.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
+  }
+
+  updateInput(e) {
+    this.setState({
+      input: e.target.value,
+    })
+  }
+
+  sendMessage(e) {
+    if ((e.key === 'Enter') && (this.state.input !== '')) {
+      console.log(this.state.input);
+
+      this.setState((state) => {
+        return {
+          input: '',
+          messages: state.messages.concat([
+            {
+              name: this.state.name,
+              content: this.state.input,
+              opacity: 1,
+            }
+          ]),
+        }
+      })
     }
   }
 
@@ -37,7 +64,7 @@ export default class App extends Component {
       >
         <Messages messages={this.state.messages} />
 
-        <Speak />
+        <Speak input={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage} />
       </div>
     );
   }

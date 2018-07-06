@@ -7,8 +7,8 @@ export default class Messages extends Component {
 
     return (
       <div>
-        {messages.map((message) => (
-          <Message key={message.id} message={message} />
+        {messages.map((message, index) => (
+          <Message key={index} message={message} />
         ))}
       </div>
     );
