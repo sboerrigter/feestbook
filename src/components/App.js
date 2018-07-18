@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
 import Header from './Header';
-import Messages from './Messages';
 import Input from './Input';
+import Messages from './Messages';
+import Music from './Music';
+import React, { Component } from 'react';
 
 export default class App extends Component {
   constructor(props) {
@@ -57,9 +58,12 @@ export default class App extends Component {
           WebkitFontSmoothing: 'antialiased',
       }}>
         <Header/>
-        <Messages messages={this.state.messages} />
-        <Input input={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage} />
-      </div>
+
+        <Messages messages={this.state.messages}/>
+
+        <Input input={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage}/>
+        <Music/>
+     </div>
     );
   }
 }
