@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { css } from 'emotion';
+import Button from './Button';
 
 export default class Header extends Component {
   render() {
@@ -25,18 +26,11 @@ export default class Header extends Component {
           Feestbook
         </a>
 
-        <a
-          className={css(`
-            background-color: #FF66CC;
-            border-radius: 100px;
-            font-size: .9em;
-            font-weight: bold;
-            line-height: 36px;
-            padding: 0 1em;
-          `)}
-        >
-          wtf?!
-        </a>
+        <Button
+          href="http://www.staggeringbeauty.com/"
+          content="wtf?!"
+          small
+        />
       </div>
     );
   }
