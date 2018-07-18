@@ -37,6 +37,7 @@ export default class Button extends Component {
           }
         `)}
         href={this.props.href}
+        onClick={this.props.onClick}
       >
         {this.props.content}
       </a>

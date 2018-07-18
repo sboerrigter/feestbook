@@ -1,4 +1,4 @@
-const variables = {
+export default {
   /**
    * Colors
    */
@@ -10,6 +10,14 @@ const variables = {
   purple: '#93F',
   red: '#F66',
   yellow: '#FF3',
+
+  /**
+   * Media queries
+   */
+  breakpoints: {
+    small: '@media (min-width: 480px)',
+    medium: '@media (min-width: 640px)',
+    large: '@media (min-width: 960px)',
+  },
 }
 
-export default variables;

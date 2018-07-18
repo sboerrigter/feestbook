@@ -30,7 +30,9 @@ export default class App extends Component {
   }
 
   submitName(e) {
-    if ((e.key === 'Enter') && (this.state.name !== '')) {
+    if (this.state.name !== '') {
+      e.preventDefault();
+
       this.setState({
         name: '',
         user: this.state.name,
@@ -72,8 +74,8 @@ export default class App extends Component {
         <Header/>
 
         <Welcome
-          submitName={this.submitName}
           updateName={this.updateName}
+          submitName={this.submitName}
           value={this.state.name}
        />
 
