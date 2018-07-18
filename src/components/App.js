@@ -42,7 +42,19 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          padding: '20px 30px 40px',
+          color: 'white',
+          fontFamily: 'system-ui, sans-serif',
+          fontSize: 14,
+          lineHeight: 1.5,
+
+          @media (min-width: 600px) {
+            fontSize: 60,
+          }
+        }}
+      >
         <Messages messages={this.state.messages} />
         <Speak input={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage} />
       </div>
