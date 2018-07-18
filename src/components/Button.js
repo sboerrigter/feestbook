@@ -1,3 +1,4 @@
+import Color from 'color';
 import React, { Component } from 'react';
 import variables from '../styles/variables';
 import { css } from 'emotion';
@@ -33,7 +34,7 @@ export default class Button extends Component {
           text-decoration: none;
 
           :hover {
-            background: ${variables.purple};
+            background: ${Color(variables.pink).darken(0.1)};
           }
         `)}
         href={this.props.href}
