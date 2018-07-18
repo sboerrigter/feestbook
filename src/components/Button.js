@@ -26,6 +26,7 @@ export default class Button extends Component {
           background: ${variables.pink};
           border-radius: 100px;
           color: white;
+          cursor: pointer;
           font-size: ${this.state.fontSize};
           font-weight: 600;
           padding: ${this.state.padding};

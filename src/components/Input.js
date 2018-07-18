@@ -36,7 +36,7 @@ export default class Input extends Component {
           onKeyPress={this.props.sendMessage}
           placeholder="Say something"
           ref={(input) => { this.nameInput = input; }}
-          value={this.props.input}
+          value={this.props.value}
         />
       </div>
     );

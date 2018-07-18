@@ -3,6 +3,7 @@ import Input from './Input';
 import Messages from './Messages';
 import Music from './Music';
 import React, { Component } from 'react';
+import Welcome from './Welcome';
 import { css } from 'emotion';
 
 export default class App extends Component {
@@ -12,7 +13,7 @@ export default class App extends Component {
     this.state = {
       input: '',
       messages: [],
-      name: 'Username',
+      name: '',
     }
 
     this.updateInput = this.updateInput.bind(this);
@@ -52,10 +53,12 @@ export default class App extends Component {
       >
         <Header/>
 
-        <Messages messages={this.state.messages}/>
+        <Welcome value={this.state.name} />
 
-        <Input input={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage}/>
-        <Music/>
+        {/*<Messages messages={this.state.messages}/>
+
+        <Input value={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage}/>
+        <Music/>*/}
      </div>
     );
   }
