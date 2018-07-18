@@ -1,26 +1,37 @@
-import React, { Component } from 'react';
-import { css } from 'emotion';
+import Avatar from './Avatar';
 import Button from './Button';
+import React, { Component } from 'react';
+import variables from '../styles/variables';
+import { css } from 'emotion';
 
 export default class Header extends Component {
   render() {
     return (
       <div
         className={css(`
+          align-items: flex-end;
           background: linear-gradient(rgba(31, 31, 153, 1), rgba(31, 31, 153, 0));
           display: flex;
           justify-content: space-between;
-          lineHeight: 2.5em;
-          padding: 20px 30px 60px;
+          padding: 25px 30px 60px;
           position: absolute;
           width: 100%;
           z-index: 1;
         `)}
       >
+        <Avatar
+          className={css(`
+            margin: 0 1rem 0 0;
+          `)}
+          color={variables.pink}
+        />
+
         <a
           className={css(`
             font-size: 1.5em;
+            line-height: 1em;
             font-weight: bold;
+            margin-right: auto;
           `)}
         >
           Feestbook
