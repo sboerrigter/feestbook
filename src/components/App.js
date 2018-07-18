@@ -49,10 +49,6 @@ export default class App extends Component {
           fontFamily: 'system-ui, sans-serif',
           fontSize: 14,
           lineHeight: 1.5,
-
-          @media (min-width: 600px) {
-            fontSize: 60,
-          }
         }}
       >
         <Messages messages={this.state.messages} />
