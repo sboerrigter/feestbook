@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { css } from 'emotion';
+import { css, keyframes } from 'emotion';
 
 export default class Avatar extends Component {
   constructor(props) {
@@ -16,18 +16,13 @@ export default class Avatar extends Component {
       this.setState({
         speaking: true,
       });
-
-      console.log(this.state.speaking);
-
-    }, false);
+    });
 
     document.addEventListener('keyup', (e) => {
       this.setState({
         speaking: false,
       });
-
-      console.log(this.state.speaking);
-    }, false);
+    });
   }
 
   render() {
@@ -41,6 +36,16 @@ export default class Avatar extends Component {
       )
     }
 
+    const rotate = keyframes`
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    `
+
+    const rotateReverse = keyframes`
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    `
+
     return (
       <svg
         className={this.props.className}
@@ -53,14 +58,31 @@ export default class Avatar extends Component {
 
         <path id="hat" fill={this.state.color} d="M0 0l1.6 18.003c5 0 9.403-2.004 12.403-5.841L0 0z" />
 
-        <g id="leftEye" transform="translate(3 19)">
-          <circle fill="#FFF" cx="4" cy="4" r="4"/>
-          <circle fill="black" cx="3" cy="3" r="2"/>
-        </g>
-
-        <g id="rightEye" transform="translate(13 19)">
+        <g
+          className={css(`
+            animation: ${rotateReverse} 2s infinite linear;
+            transform-origin: center center;
+          `)}
+          id="rightEye"
+          x="3"
+          y="19"
+        >
           <circle fill="#FFF" cx="4" cy="4" r="4"/>
           <circle fill="black" cx="5" cy="5" r="2"/>
+        </g>
+
+        <g
+          className={css(`
+            animation: ${rotate} 3s infinite linear;
+            transform-origin: center center;
+          `)}
+          id="rightEye"
+          transform="translate(13 19)"
+          x="3"
+          y="19"
+        >
+          <circle fill="#FFF" cx="4" cy="4" r="4"/>
+          <circle fill="black" cx="3" cy="3" r="2"/>
         </g>
 
         {mouth}

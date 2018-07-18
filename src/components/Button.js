@@ -32,6 +32,7 @@ export default class Button extends Component {
           font-weight: 600;
           padding: ${this.state.padding};
           text-decoration: none;
+          transition: background-color .3s;
 
           :hover {
             background: ${Color(variables.pink).darken(0.1)};
