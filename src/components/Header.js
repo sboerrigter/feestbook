@@ -9,7 +9,7 @@ export default class Header extends Component {
           background: linear-gradient(rgba(31, 31, 153, 1), rgba(31, 31, 153, 0));
           display: flex;
           justify-content: space-between;
-          lineHeight: 40px;
+          lineHeight: 2.5em;
           padding: 20px 30px 60px;
           position: absolute;
           width: 100%;
@@ -18,7 +18,7 @@ export default class Header extends Component {
       >
         <a
           className={css(`
-            font-size: 1.5rem;
+            font-size: 1.5em;
             font-weight: bold;
           `)}
         >

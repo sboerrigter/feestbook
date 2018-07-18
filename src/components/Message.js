@@ -35,11 +35,15 @@ export default class Message extends Component {
           background: white;
           border-radius: 2px;
           color: #333;
-          font-size: .9em;
-          margin: 0 0 10px 0;
+          font-size: 0.9em;
+          margin: 0 0 1em 0;
           opacity: ${this.state.clearity/100};
           padding: .25em .5em;
           width: auto;
+
+          @media (min-width: 640px) {
+            font-size: 1em;
+          }
       `)}
       >
         <strong>{message.name}: </strong>

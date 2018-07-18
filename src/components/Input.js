@@ -15,18 +15,21 @@ export default class Input extends Component {
       }}>
         <input
            className={css(`
-            background: rgba(255, 255, 255, .1);
+            background: rgba(255, 255, 255, .05);
             border-radius: 3px;
             border: none;
             color: white;
             font-size: 1em;
-            line-height: 20px;
             outline: none;
-            padding: 15px;
+            padding: 1em;
             width: 100%;
 
+            :focus {
+              background: rgba(255, 255, 255, .1);
+            }
+
             ::placeholder {
-              color: rgba(255, 255, 255, .25);
+              color: rgba(255, 255, 255, .5);
             }
           `)}
           onChange={this.props.updateInput}

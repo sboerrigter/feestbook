@@ -12,7 +12,7 @@ export default class App extends Component {
     this.state = {
       input: '',
       messages: [],
-      name: 'Sjoerd',
+      name: 'Username',
     }
 
     this.updateInput = this.updateInput.bind(this);
@@ -27,10 +27,7 @@ export default class App extends Component {
 
   sendMessage(e) {
     if ((e.key === 'Enter') && (this.state.input !== '')) {
-      console.log(this.state.input);
-
       this.setState((state) => {
-
         return {
           input: '',
           messages: state.messages.concat([
@@ -48,13 +45,9 @@ export default class App extends Component {
     return (
       <div
         className={css(`
-          -webkit-font-smoothing: antialiased;
-          color: white;
           display: flex;
           flex-direction: column;
-          font-family: system-ui, sans-serif;
           height: 100vh;
-          line-height: 1.5;
         `)}
       >
         <Header/>
