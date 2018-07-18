@@ -3,8 +3,8 @@ import { css } from 'emotion';
 
 export default class Input extends Component {
   componentDidMount(){
-      this.nameInput.focus();
-    }
+    this.field.focus();
+  }
 
   render() {
     return (
@@ -32,10 +32,10 @@ export default class Input extends Component {
               color: rgba(255, 255, 255, .5);
             }
           `)}
-          onChange={this.props.updateInput}
-          onKeyPress={this.props.sendMessage}
+          onChange={this.props.updateMessage}
+          onKeyPress={this.props.sutmitMessage}
           placeholder="Say something"
-          ref={(input) => { this.nameInput = input; }}
+          ref={(input) => { this.field = input; }}
           value={this.props.value}
         />
       </div>

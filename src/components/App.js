@@ -11,30 +11,48 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      input: '',
+      message: '',
       messages: [],
       name: '',
+      user: false,
     }
 
-    this.updateInput = this.updateInput.bind(this);
-    this.sendMessage = this.sendMessage.bind(this);
+    this.updateName = this.updateName.bind(this);
+    this.submitName = this.submitName.bind(this);
+    this.updateMessage = this.updateMessage.bind(this);
+    this.submitMessage = this.submitMessage.bind(this);
   }
 
-  updateInput(e) {
+  updateName(e) {
     this.setState({
-      input: e.target.value,
+      name: e.target.value,
     })
   }
 
-  sendMessage(e) {
-    if ((e.key === 'Enter') && (this.state.input !== '')) {
+  submitName(e) {
+    if ((e.key === 'Enter') && (this.state.name !== '')) {
+      this.setState({
+        name: '',
+        user: this.state.name,
+      })
+    }
+  }
+
+  updateMessage(e) {
+    this.setState({
+      message: e.target.value,
+    })
+  }
+
+  submitMessage(e) {
+    if ((e.key === 'Enter') && (this.state.message !== '')) {
       this.setState((state) => {
         return {
-          input: '',
+          message: '',
           messages: state.messages.concat([
             {
               name: this.state.name,
-              content: this.state.input,
+              content: this.state.message,
             }
           ]),
         }
@@ -53,11 +71,15 @@ export default class App extends Component {
       >
         <Header/>
 
-        <Welcome value={this.state.name} />
+        <Welcome
+          submitName={this.submitName}
+          updateName={this.updateName}
+          value={this.state.name}
+       />
 
         {/*<Messages messages={this.state.messages}/>
 
-        <Input value={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage}/>
+        <Input value={this.state.message} updateMessage={this.updateMessage} submitMessage={this.submitMessage}/>
         <Music/>*/}
      </div>
     );

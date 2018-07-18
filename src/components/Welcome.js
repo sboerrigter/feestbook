@@ -3,6 +3,10 @@ import { css } from 'emotion';
 import Button from './Button';
 
 export default class Welcome extends Component {
+  componentDidMount(){
+    this.field.focus();
+  }
+
   render() {
     return (
       <div
@@ -36,7 +40,7 @@ export default class Welcome extends Component {
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
             font-size: 2.5em;
             margin: 0 0 1.5em 0;
-            padding: .25em;
+            padding: 0 .25em .5em;
             color: rgba(255, 255, 255, 0.5);
             width: 100%;
             font-weight: 100;
@@ -45,6 +49,9 @@ export default class Welcome extends Component {
               font-size: 4em;
             }
           `)}
+          onChange={this.props.updateName}
+          onKeyPress={this.props.submitName}
+          ref={(input) => { this.field = input; }}
           value={this.props.value}
         />
 
