@@ -29,7 +29,15 @@ export default class Message extends Component {
     const message = this.props.message;
 
     return (
-      <div style={{opacity: this.state.clearity/100}}>
+      <div style={{
+        background: 'white',
+        borderRadius: 3,
+        margin: '0 0 10px 0',
+        padding: '5px 10px',
+        color: 'black',
+        width: 'auto',
+        opacity: this.state.clearity/100
+      }}>
         <strong>{message.name}: </strong>
         {message.content}
       </div>

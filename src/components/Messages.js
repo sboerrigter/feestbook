@@ -6,7 +6,11 @@ export default class Messages extends Component {
     const messages = this.props.messages;
 
     return (
-      <div>
+      <div style={{
+        display: 'flex',
+        alignItems: 'flex-start',
+        flexDirection: 'column',
+      }}>
         {messages.map((message, index) => (
           <Message key={index} message={message} />
         ))}
