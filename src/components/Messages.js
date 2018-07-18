@@ -7,9 +7,10 @@ export default class Messages extends Component {
 
     return (
       <div style={{
-        display: 'flex',
         alignItems: 'flex-start',
+        display: 'flex',
         flexDirection: 'column',
+        padding: '80px 30px',
       }}>
         {messages.map((message, index) => (
           <Message key={index} message={message} />

@@ -45,16 +45,14 @@ export default class App extends Component {
     return (
       <div style={{
           alignItems: 'flex-start',
-          boxSizing: 'border-box',
           color: 'white',
           display: 'flex',
           flexDirection: 'column',
           fontFamily: 'system-ui, sans-serif',
-          fontSize: 12,
+          fontSize: 14,
           height: '100vh',
           lineHeight: 1.5,
-          overflow: 'scroll',
-          padding: '20px 30px 40px',
+          overflow: 'scroll'
       }}>
         <Header/>
         <Messages messages={this.state.messages} />
