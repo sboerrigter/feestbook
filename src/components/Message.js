@@ -34,7 +34,7 @@ export default class Message extends Component {
         borderRadius: 3,
         margin: '0 0 10px 0',
         padding: '5px 10px',
-        color: 'black',
+        color: '#333',
         width: 'auto',
         opacity: this.state.clearity/100
       }}>

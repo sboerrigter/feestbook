@@ -4,10 +4,14 @@ export default class Speak extends Component {
   render() {
     return (
       <input
-        placeholder="Say something"
-        value={this.props.input}
         onChange={this.props.updateInput}
         onKeyPress={this.props.sendMessage}
+        placeholder="Say something"
+        style={{
+          marginTop: 'auto',
+          width: '100%',
+        }}
+        value={this.props.input}
       />
     );
   }

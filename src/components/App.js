@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import Messages from './Messages';
 import Speak from './Speak';
 
@@ -43,21 +44,19 @@ export default class App extends Component {
   render() {
     return (
       <div style={{
-          justifyContent: 'space-between',
+          alignItems: 'flex-start',
           boxSizing: 'border-box',
-          color: '#333',
+          color: 'white',
           display: 'flex',
           flexDirection: 'column',
           fontFamily: 'system-ui, sans-serif',
           fontSize: 12,
           height: '100vh',
           lineHeight: 1.5,
+          overflow: 'scroll',
           padding: '20px 30px 40px',
-
-          '@media (minWidth: 800px)': {
-            fontSize: 24,
-          }
       }}>
+        <Header/>
         <Messages messages={this.state.messages} />
         <Speak input={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage} />
       </div>
