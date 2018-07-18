@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Messages from './Messages';
-import Speak from './Speak';
+import Input from './Input';
 
 export default class App extends Component {
   constructor(props) {
@@ -28,6 +28,7 @@ export default class App extends Component {
       console.log(this.state.input);
 
       this.setState((state) => {
+
         return {
           input: '',
           messages: state.messages.concat([
@@ -57,7 +58,7 @@ export default class App extends Component {
       }}>
         <Header/>
         <Messages messages={this.state.messages} />
-        <Speak input={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage} />
+        <Input input={this.state.input} updateInput={this.updateInput} sendMessage={this.sendMessage} />
       </div>
     );
   }

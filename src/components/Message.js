@@ -31,7 +31,7 @@ export default class Message extends Component {
     return (
       <div style={{
         background: 'white',
-        borderRadius: 3,
+        borderRadius: 2,
         margin: '0 0 10px 0',
         padding: '.25em .5em',
         color: '#333',

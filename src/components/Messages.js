@@ -8,9 +8,13 @@ export default class Messages extends Component {
     return (
       <div style={{
         alignItems: 'flex-start',
+        justifyContent: 'flex-end',
         display: 'flex',
         flexDirection: 'column',
-        padding: '80px 30px',
+        overflow: 'scroll',
+        padding: '20px 30px',
+        flex: '1',
+        width: '100%',
       }}>
         {messages.map((message, index) => (
           <Message key={index} message={message} />
