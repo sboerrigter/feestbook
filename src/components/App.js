@@ -52,7 +52,8 @@ export default class App extends Component {
           fontSize: 14,
           height: '100vh',
           lineHeight: 1.5,
-          overflow: 'scroll'
+          overflow: 'scroll',
+          webkitFontSmoothing: 'antialiased',
       }}>
         <Header/>
         <Messages messages={this.state.messages} />

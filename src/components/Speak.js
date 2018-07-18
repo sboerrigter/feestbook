@@ -8,7 +8,11 @@ export default class Speak extends Component {
         onKeyPress={this.props.sendMessage}
         placeholder="Say something"
         style={{
-          marginTop: 'auto',
+          fontSize: 16,
+          lineHeight: '20px',
+          margin: 'auto 0 0',
+          padding: '10px',
+          border: 'none',
           width: '100%',
         }}
         value={this.props.input}

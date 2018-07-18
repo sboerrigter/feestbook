@@ -19,8 +19,15 @@ export default class Header extends Component {
           Feestbook
         </a>
 
-        <a>
-          WTF?!
+        <a style={{
+          backgroundColor: '#FF66CC',
+          padding: '0 1em',
+          lineHeight: '36px',
+          height: '36px',
+          borderRadius: 100,
+          fontWeight: 500,
+        }}>
+          wtf?!
         </a>
       </div>
     );
