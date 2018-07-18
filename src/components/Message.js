@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { css } from 'emotion';
 
 export default class Message extends Component {
   constructor(props) {
@@ -29,15 +30,18 @@ export default class Message extends Component {
     const message = this.props.message;
 
     return (
-      <div style={{
-        background: 'white',
-        borderRadius: 2,
-        margin: '0 0 10px 0',
-        padding: '.25em .5em',
-        color: '#333',
-        width: 'auto',
-        opacity: this.state.clearity/100
-      }}>
+      <div
+        className={css(`
+          background: white;
+          border-radius: 2px;
+          color: #333;
+          font-size: .9em;
+          margin: 0 0 10px 0;
+          opacity: ${this.state.clearity/100};
+          padding: .25em .5em;
+          width: auto;
+      `)}
+      >
         <strong>{message.name}: </strong>
         {message.content}
       </div>

@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { css } from 'emotion';
 
 export default class Input extends Component {
+  componentDidMount(){
+      this.nameInput.focus();
+    }
+
   render() {
     return (
       <div style={{
@@ -9,29 +14,25 @@ export default class Input extends Component {
         width: '100%',
       }}>
         <input
+           className={css(`
+            background: rgba(255, 255, 255, .1);
+            border-radius: 3px;
+            border: none;
+            color: white;
+            font-size: 1em;
+            line-height: 20px;
+            outline: none;
+            padding: 15px;
+            width: 100%;
+
+            ::placeholder {
+              color: rgba(255, 255, 255, .25);
+            }
+          `)}
           onChange={this.props.updateInput}
           onKeyPress={this.props.sendMessage}
           placeholder="Say something"
-          style={{
-            color: 'white',
-            background: 'rgba(255, 255, 255, .25)',
-            fontSize: 16,
-            lineHeight: '20px',
-            padding: '15px',
-            border: 'none',
-            borderRadius: 2,
-            width: '100%',
-            outline: 'none',
-            '&:hover': {
-              opacity: '0.5'
-            },
-            '@media (min-width: 768px)': {
-              margin: '0 20px 0 0',
-              '&:last-child': {
-                margin: 0
-              }
-            }
-          }}
+          ref={(input) => { this.nameInput = input; }}
           value={this.props.input}
         />
       </div>

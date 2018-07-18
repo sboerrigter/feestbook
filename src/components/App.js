@@ -3,6 +3,7 @@ import Input from './Input';
 import Messages from './Messages';
 import Music from './Music';
 import React, { Component } from 'react';
+import { css } from 'emotion';
 
 export default class App extends Component {
   constructor(props) {
@@ -45,18 +46,17 @@ export default class App extends Component {
 
   render() {
     return (
-      <div style={{
-          alignItems: 'flex-start',
-          color: 'white',
-          display: 'flex',
-          flexDirection: 'column',
-          fontFamily: 'system-ui, sans-serif',
-          fontSize: 14,
-          height: '100vh',
-          lineHeight: 1.5,
-          overflow: 'scroll',
-          WebkitFontSmoothing: 'antialiased',
-      }}>
+      <div
+        className={css(`
+          -webkit-font-smoothing: antialiased;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          font-family: system-ui, sans-serif;
+          height: 100vh;
+          line-height: 1.5;
+        `)}
+      >
         <Header/>
 
         <Messages messages={this.state.messages}/>
