@@ -5,6 +5,7 @@
   "dependencies": {
     "color": "^3.0.0",
     "emotion": "^9.2.6",
+    "firebase": "^5.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4"
