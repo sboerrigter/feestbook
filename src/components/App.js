@@ -1,9 +1,8 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase';
 import About from './About';
 import Header from './Header';
 import Input from './Input';
 import Messages from './Messages';
-import Music from './Music';
 import React, { Component } from 'react';
 import Welcome from './Welcome';
 import { css, injectGlobal } from 'emotion';
@@ -153,10 +152,6 @@ export default class App extends Component {
       />
     ) : '';
 
-    const music = (this.state.user) ? (
-      <Music />
-    ) : '';
-
     return (
       <div
         className={css(`
@@ -170,7 +165,6 @@ export default class App extends Component {
         {welcome}
         {messages}
         {input}
-        {music}
       </div>
     );
   }
