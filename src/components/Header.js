@@ -28,11 +28,13 @@ export default class Header extends Component {
 
         <a
           className={css(`
+            cursor: pointer;
             font-size: 1.5em;
             line-height: 1em;
             font-weight: bold;
             margin-right: auto;
           `)}
+          onClick={this.props.restart}
         >
           Feestbook
         </a>
