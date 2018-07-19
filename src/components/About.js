@@ -34,7 +34,7 @@ export default class App extends Component {
             display: flex;
             flex-direction: column;
             margin: 60px auto;
-            max-width: 900px;
+            max-width: 1000px;
             z-index: 2;
 
             ${vars.breakpoints.large} {
