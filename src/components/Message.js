@@ -28,7 +28,7 @@ export default class Message extends Component {
 
   render() {
     const message = this.props.message;
-    const alignSelf = (message.user == this.props.user) ? 'flex-end' : 'flex-start';
+    const alignSelf = (message.user === this.props.user) ? 'flex-end' : 'flex-start';
 
     return (
       <div
