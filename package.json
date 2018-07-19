@@ -14,6 +14,6 @@
     "build": "react-scripts build",
     "deploy": "react-scripts build && firebase deploy",
     "start": "react-scripts start",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom"
   }
 }
