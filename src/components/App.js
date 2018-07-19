@@ -1,3 +1,4 @@
+import About from './About';
 import Header from './Header';
 import Input from './Input';
 import Messages from './Messages';
@@ -68,7 +69,39 @@ export default class App extends Component {
   }
 
   render() {
-    let components = (
+    let about = (this.state.showAbout) ? (
+      <About />
+    ) : '';
+
+    let welcome = (!this.state.user) ? (
+      <Welcome
+        updateName={this.updateName}
+        submitName={this.submitName}
+        value={this.state.name}
+      />
+    ) : '';
+
+
+    let messages = (this.state.user) ? (
+      <Messages
+        messages={this.state.messages}
+        user={this.state.user}
+      />
+    ) : '';
+
+    let input = (this.state.user) ? (
+      <Input
+        value={this.state.message}
+        updateMessage={this.updateMessage}
+        submitMessage={this.submitMessage}
+      />
+    ) : '';
+
+    let music = (this.state.user) ? (
+      <Music />
+    ) : '';
+
+    return (
       <div
         className={css(`
           display: flex;
@@ -78,34 +111,11 @@ export default class App extends Component {
       >
         <Header restart={this.restart} />
 
-        <Messages
-          messages={this.state.messages}
-          user={this.state.user}
-        />
-
-        <Input
-          value={this.state.message}
-          updateMessage={this.updateMessage}
-          submitMessage={this.submitMessage}
-        />
-
-        <Music/>
+        {about}
+        {welcome}
+        {messages}
+        {input}
       </div>
-    )
-    if (!this.state.user) {
-      components = (
-        <div>
-          <Header restart={this.restart} />
-
-          <Welcome
-            updateName={this.updateName}
-            submitName={this.submitName}
-            value={this.state.name}
-          />
-        </div>
-      )
-    }
-
-    return components;
+    );
   }
 }
