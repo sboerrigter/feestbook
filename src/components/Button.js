@@ -1,6 +1,6 @@
 import Color from 'color';
 import React, { Component } from 'react';
-import variables from '../styles/variables';
+import vars from '../styles/variables';
 import { css } from 'emotion';
 
 export default class Button extends Component {
@@ -24,7 +24,7 @@ export default class Button extends Component {
     return (
       <a
         className={css(`
-          background: ${variables.pink};
+          background: ${vars.pink};
           border-radius: 100px;
           color: white;
           cursor: pointer;
@@ -35,7 +35,7 @@ export default class Button extends Component {
           transition: background-color .3s;
 
           :hover {
-            background: ${Color(variables.pink).darken(0.1)};
+            background: ${Color(vars.pink).darken(0.1)};
           }
         `)}
         href={this.props.href}

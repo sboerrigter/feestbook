@@ -11,6 +11,9 @@ export default {
   red: '#F66',
   yellow: '#FF3',
 
+  darkBlue: '#1F1F99',
+  darkPurple: '#206',
+
   /**
    * Media queries
    */

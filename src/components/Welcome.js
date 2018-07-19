@@ -12,12 +12,13 @@ export default class Welcome extends Component {
     return (
       <div
         className={css(`
-          padding: 120px 30px 60px;
+          align-items: flex-start;
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
           margin: 0 auto;
           max-width: 960px;
+          padding: 120px 30px 60px;
+          width: 100%;
 
           ${vars.breakpoints.medium} {
             padding: 180px 30px 120px;

@@ -40,8 +40,8 @@ export default class Header extends Component {
         </a>
 
         <Button
-          href="http://www.staggeringbeauty.com/"
           content="wtf?!"
+          onClick={this.props.showAbout}
           small
         />
       </div>

@@ -5,7 +5,28 @@ import Messages from './Messages';
 import Music from './Music';
 import React, { Component } from 'react';
 import Welcome from './Welcome';
-import { css } from 'emotion';
+import { css, injectGlobal } from 'emotion';
+
+injectGlobal`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    background: linear-gradient(#1F1F99, #220066);
+    background-attachment: fixed;
+    color: white;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+  }
+
+  p {
+    margin: 0 0 1.5em;
+  }
+`;
 
 export default class App extends Component {
   constructor(props) {
@@ -15,19 +36,34 @@ export default class App extends Component {
       message: '',
       messages: [],
       name: '',
+      showAbout: false,
       user: false,
     }
 
     this.restart = this.restart.bind(this);
+    this.showAbout = this.showAbout.bind(this);
+    this.hideAbout = this.hideAbout.bind(this);
     this.updateName = this.updateName.bind(this);
     this.submitName = this.submitName.bind(this);
     this.updateMessage = this.updateMessage.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
   }
 
-  restart(e) {
+  restart() {
     this.setState({
       user: false,
+    });
+  }
+
+  showAbout() {
+    this.setState({
+      showAbout: true,
+    });
+  }
+
+  hideAbout() {
+    this.setState({
+      showAbout: false,
     });
   }
 
@@ -69,11 +105,17 @@ export default class App extends Component {
   }
 
   render() {
-    let about = (this.state.showAbout) ? (
-      <About />
+    const header = (
+      <Header restart={this.restart} showAbout={this.showAbout} />
+    );
+
+    const about = (this.state.showAbout) ? (
+      <About
+        hideAbout={this.hideAbout}
+      />
     ) : '';
 
-    let welcome = (!this.state.user) ? (
+    const welcome = (!this.state.user) ? (
       <Welcome
         updateName={this.updateName}
         submitName={this.submitName}
@@ -82,14 +124,14 @@ export default class App extends Component {
     ) : '';
 
 
-    let messages = (this.state.user) ? (
+    const messages = (this.state.user) ? (
       <Messages
         messages={this.state.messages}
         user={this.state.user}
       />
     ) : '';
 
-    let input = (this.state.user) ? (
+    const input = (this.state.user) ? (
       <Input
         value={this.state.message}
         updateMessage={this.updateMessage}
@@ -97,7 +139,7 @@ export default class App extends Component {
       />
     ) : '';
 
-    let music = (this.state.user) ? (
+    const music = (this.state.user) ? (
       <Music />
     ) : '';
 
@@ -106,11 +148,10 @@ export default class App extends Component {
         className={css(`
           display: flex;
           flex-direction: column;
-          height: 100vh;
+          min-height: 100vh;
         `)}
       >
-        <Header restart={this.restart} />
-
+        {header}
         {about}
         {welcome}
         {messages}
