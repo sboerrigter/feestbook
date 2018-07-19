@@ -63,6 +63,27 @@ export default class App extends Component {
   }
 
   render() {
+    let components = (
+      <div>
+        <Messages messages={this.state.messages}/>
+
+        <Input
+          value={this.state.message}
+          updateMessage={this.updateMessage}
+          submitMessage={this.submitMessage}
+        />
+      </div>
+    )
+    if (!this.state.user) {
+      components = (
+        <Welcome
+          updateName={this.updateName}
+          submitName={this.submitName}
+          value={this.state.name}
+        />
+      )
+    }
+
     return (
       <div
         className={css(`
@@ -73,17 +94,10 @@ export default class App extends Component {
       >
         <Header/>
 
-        <Welcome
-          updateName={this.updateName}
-          submitName={this.submitName}
-          value={this.state.name}
-       />
+        {components}
 
-        {/*<Messages messages={this.state.messages}/>
-
-        <Input value={this.state.message} updateMessage={this.updateMessage} submitMessage={this.submitMessage}/>
-        <Music/>*/}
-     </div>
+        <Music/>
+      </div>
     );
   }
 }
