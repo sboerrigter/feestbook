@@ -107,7 +107,7 @@ export default class App extends Component {
         }
       });
 
-      firebase.database().ref().child('messages').push({
+      firebase.database().ref('messages').push({
         user: this.state.user,
         content: this.state.message,
       });
