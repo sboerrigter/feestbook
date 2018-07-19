@@ -14,7 +14,7 @@ export default class Header extends Component {
           display: flex;
           justify-content: space-between;
           padding: 25px 30px 60px;
-          position: absolute;
+          position: fixed;
           width: 100%;
           z-index: 1;
         `)}
