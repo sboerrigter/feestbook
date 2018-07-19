@@ -1,3 +1,4 @@
+import * as firebase from 'firebase';
 import About from './About';
 import Header from './Header';
 import Input from './Input';
@@ -47,6 +48,18 @@ export default class App extends Component {
     this.submitName = this.submitName.bind(this);
     this.updateMessage = this.updateMessage.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
+  }
+
+  componentDidMount() {
+    const messagesRef = firebase.database().ref().child('messages');
+
+    console.log(messagesRef);
+
+    messagesRef.on('value', snap => {
+      this.setState({
+        messages: snap.val(),
+      })
+    });
   }
 
   restart() {
