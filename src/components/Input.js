@@ -33,7 +33,7 @@ export default class Input extends Component {
             }
           `)}
           onChange={this.props.updateMessage}
-          onKeyPress={this.props.sutmitMessage}
+          onKeyPress={this.props.submitMessage}
           placeholder="Say something"
           ref={(input) => { this.field = input; }}
           value={this.props.value}
