@@ -14,11 +14,16 @@ export default class Messages extends Component {
           display: flex;
           flex-direction: column;
           padding: 20px 30px;
+          margin-top: auto;
           flex: 1;
         `)}
       >
         {messages.map((message, index) => (
-          <Message key={index} message={message} />
+          <Message
+            key={index}
+            message={message}
+            user={this.props.user}
+          />
         ))}
       </div>
     );

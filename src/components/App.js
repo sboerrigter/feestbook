@@ -53,7 +53,7 @@ export default class App extends Component {
           message: '',
           messages: state.messages.concat([
             {
-              name: this.state.name,
+              user: this.state.user,
               content: this.state.message,
             }
           ]),
@@ -64,27 +64,6 @@ export default class App extends Component {
 
   render() {
     let components = (
-      <div>
-        <Messages messages={this.state.messages}/>
-
-        <Input
-          value={this.state.message}
-          updateMessage={this.updateMessage}
-          submitMessage={this.submitMessage}
-        />
-      </div>
-    )
-    if (!this.state.user) {
-      components = (
-        <Welcome
-          updateName={this.updateName}
-          submitName={this.submitName}
-          value={this.state.name}
-        />
-      )
-    }
-
-    return (
       <div
         className={css(`
           display: flex;
@@ -94,10 +73,34 @@ export default class App extends Component {
       >
         <Header/>
 
-        {components}
+        <Messages
+          messages={this.state.messages}
+          user={this.state.user}
+        />
+
+        <Input
+          value={this.state.message}
+          updateMessage={this.updateMessage}
+          submitMessage={this.submitMessage}
+        />
 
         <Music/>
       </div>
-    );
+    )
+    if (!this.state.user) {
+      components = (
+        <div>
+          <Header/>
+
+          <Welcome
+            updateName={this.updateName}
+            submitName={this.submitName}
+            value={this.state.name}
+          />
+        </div>
+      )
+    }
+
+    return components;
   }
 }

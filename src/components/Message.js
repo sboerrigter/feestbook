@@ -28,10 +28,12 @@ export default class Message extends Component {
 
   render() {
     const message = this.props.message;
+    const alignSelf = (message.user == this.props.user) ? 'flex-end' : 'flex-start';
 
     return (
       <div
         className={css(`
+          align-self: ${alignSelf};
           background: white;
           border-radius: 2px;
           color: #333;
@@ -39,6 +41,7 @@ export default class Message extends Component {
           margin: 0 0 1em 0;
           opacity: ${this.state.clearity/100};
           padding: .25em .5em;
+          transition: opacity 1s linear;
           width: auto;
 
           @media (min-width: 640px) {
@@ -46,7 +49,7 @@ export default class Message extends Component {
           }
       `)}
       >
-        <strong>{message.name}: </strong>
+        <strong>{message.user}: </strong>
         {message.content}
       </div>
     );
