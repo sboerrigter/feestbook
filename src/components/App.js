@@ -35,7 +35,7 @@ export default class App extends Component {
 
     this.state = {
       message: '',
-      messages: false,
+      messages: [],
       name: '',
       showAbout: false,
       user: false,
@@ -51,11 +51,14 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const messages = firebase.database().ref().child('messages');
+    let messages = firebase.database().ref().child('messages').orderByChild('timestamp');
 
-    messages.on('value', snap => {
+
+    messages.on('value', snapshot => {
+      const value = (snapshot.val()) ? snapshot.val() : [];
+
       this.setState({
-        messages: snap.val(),
+        messages: value,
       })
     });
   }
@@ -110,6 +113,7 @@ export default class App extends Component {
       firebase.database().ref('messages').push({
         user: this.state.user,
         content: this.state.message,
+        timestamp: Math.floor(Date.now()),
       });
     }
   }
@@ -166,6 +170,7 @@ export default class App extends Component {
         {welcome}
         {messages}
         {input}
+        {music}
       </div>
     );
   }
