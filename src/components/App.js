@@ -17,33 +17,38 @@ export default class App extends Component {
       user: false,
     }
 
+    this.restart = this.restart.bind(this);
     this.updateName = this.updateName.bind(this);
     this.submitName = this.submitName.bind(this);
     this.updateMessage = this.updateMessage.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
   }
 
+  restart(e) {
+    this.setState({
+      user: false,
+    });
+  }
+
   updateName(e) {
     this.setState({
       name: e.target.value,
-    })
+    });
   }
 
   submitName(e) {
-    if (this.state.name !== '') {
-      e.preventDefault();
-
+    if ((e.type === 'click' || e.key === 'Enter') && (this.state.name !== '')) {
       this.setState({
         name: '',
         user: this.state.name,
-      })
+      });
     }
   }
 
   updateMessage(e) {
     this.setState({
       message: e.target.value,
-    })
+    });
   }
 
   submitMessage(e) {
@@ -58,7 +63,7 @@ export default class App extends Component {
             }
           ]),
         }
-      })
+      });
     }
   }
 
@@ -71,7 +76,7 @@ export default class App extends Component {
           height: 100vh;
         `)}
       >
-        <Header/>
+        <Header restart={this.restart} />
 
         <Messages
           messages={this.state.messages}
@@ -90,7 +95,7 @@ export default class App extends Component {
     if (!this.state.user) {
       components = (
         <div>
-          <Header/>
+          <Header restart={this.restart} />
 
           <Welcome
             updateName={this.updateName}

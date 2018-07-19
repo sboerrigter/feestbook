@@ -61,6 +61,7 @@ export default class Welcome extends Component {
           onChange={this.props.updateName}
           ref={(input) => { this.field = input; }}
           value={this.props.value}
+          onKeyPress={this.props.submitName}
         />
 
         <Button
