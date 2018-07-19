@@ -35,7 +35,7 @@ export default class App extends Component {
 
     this.state = {
       message: '',
-      messages: [],
+      messages: false,
       name: '',
       showAbout: false,
       user: false,
@@ -51,11 +51,9 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const messagesRef = firebase.database().ref().child('messages');
+    const messages = firebase.database().ref().child('messages');
 
-    console.log(messagesRef);
-
-    messagesRef.on('value', snap => {
+    messages.on('value', snap => {
       this.setState({
         messages: snap.val(),
       })
@@ -106,13 +104,12 @@ export default class App extends Component {
       this.setState((state) => {
         return {
           message: '',
-          messages: state.messages.concat([
-            {
-              user: this.state.user,
-              content: this.state.message,
-            }
-          ]),
         }
+      });
+
+      firebase.database().ref().child('messages').push({
+        user: this.state.user,
+        content: this.state.message,
       });
     }
   }

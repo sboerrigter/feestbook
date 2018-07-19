@@ -4,7 +4,7 @@ import { css } from 'emotion';
 
 export default class Messages extends Component {
   render() {
-    const messages = this.props.messages;
+    const messages = Object.keys(this.props.messages).map(k => this.props.messages[k]);
 
     return (
       <div
