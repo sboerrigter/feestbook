@@ -18,6 +18,7 @@ export default class Welcome extends Component {
           margin: 0 auto;
           max-width: 960px;
           padding: 120px 30px 60px;
+          overflow: scroll;
           width: 100%;
 
           ${vars.breakpoints.medium} {
