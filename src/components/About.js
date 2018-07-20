@@ -56,7 +56,7 @@ export default class App extends Component {
 
             <p>Our most important values are freedom, privacy and fun. You are completely anonymous and everything you post here will be deleted within 100 seconds. There is no censorship and no shame here. Only wonderful people who like to have fun with others.</p>
 
-            <p>The word "Feest" is dutch for party, so don't be shy and let's party hard! Don't worry... everything will be forgotten tomorrow.</p>
+            <p>The word "feest" is dutch for party, so don't be shy and let's party hard! Don't worry... everything will be forgotten tomorrow.</p>
           </div>
 
           <Button content="Party hard!" onClick={this.props.hideAbout} />
