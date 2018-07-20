@@ -62,6 +62,7 @@ export default class Message extends Component {
           color: #333;
           font-size: 0.9em;
           margin: 0 0 1em 0;
+          max-width: 100%;
           opacity: ${opacity};
           padding: .25em .5em;
           transition: ${transition};

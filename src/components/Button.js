@@ -34,8 +34,13 @@ export default class Button extends Component {
           text-decoration: none;
           transition: background-color .3s;
 
-          :hover {
+
+          :active,
+          :focus,
+          :hover,
+          :visited {
             background: ${Color(variables.pink).darken(0.1)};
+            color: white;
           }
         `)}
         href={this.props.href}

@@ -14,6 +14,8 @@ export default class Messages extends Component {
           display: flex;
           flex-direction: column;
           padding: 20px 30px;
+          overflow: hidden;
+          max-width: 100%;
           margin-top: auto;
           flex: 1;
         `)}
