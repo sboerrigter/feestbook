@@ -1,9 +1,10 @@
-import firebase from 'firebase';
 import About from './About';
+import firebase from 'firebase';
 import Header from './Header';
 import Input from './Input';
 import Messages from './Messages';
 import React, { Component } from 'react';
+import variables from '../styles/variables';
 import Welcome from './Welcome';
 import { css, injectGlobal } from 'emotion';
 
@@ -25,6 +26,20 @@ injectGlobal`
 
   p {
     margin: 0 0 1.5em;
+  }
+
+  a {
+    color: ${variables.blue};
+
+    :active,
+    :focus,
+    :hover {
+      color: ${variables.darkBlue};
+    }
+
+    :visited {
+      color: ${variables.darkPurple};
+    }
   }
 `;
 

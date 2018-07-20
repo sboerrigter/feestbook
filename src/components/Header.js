@@ -28,11 +28,19 @@ export default class Header extends Component {
 
         <a
           className={css(`
+            color: white;
             cursor: pointer;
             font-size: 1.5em;
             line-height: 1em;
             font-weight: bold;
             margin-right: auto;
+
+            :active,
+            :focus,
+            :hover,
+            :visited {
+              color: white;
+            }
           `)}
           onClick={this.props.restart}
         >

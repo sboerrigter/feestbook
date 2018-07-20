@@ -1,3 +1,4 @@
+import { autolink } from 'react-autolink';
 import React, { Component } from 'react';
 import { css } from 'emotion';
 
@@ -72,7 +73,7 @@ export default class Message extends Component {
       `)}
       >
         <strong>{this.props.message.user}: </strong>
-        {this.props.message.content}
+        {autolink(this.props.message.content)}
       </div>
     );
   }
