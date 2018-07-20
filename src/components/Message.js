@@ -6,8 +6,27 @@ export default class Message extends Component {
     super(props)
 
     this.state = {
-      clearity: 100,
+      clearity: 10,
     }
+  }
+
+  componentDidMount() {
+    const now = Math.floor(Date.now());
+    const timestamp = this.props.message.timestamp;
+    const fadeInterval = 10 * 1000; // 10 seconds
+    const clearity = Math.round(10 - (now - timestamp) / fadeInterval);
+
+    console.log(clearity);
+
+    this.setState(state => ({
+      clearity: clearity,
+    }));
+
+    this.interval = setInterval(() => this.fade(), fadeInterval);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   fade() {
@@ -18,17 +37,8 @@ export default class Message extends Component {
     }
   }
 
-  componentDidMount() {
-    this.interval = setInterval(() => this.fade(), 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
   render() {
-    const message = this.props.message;
-    const alignSelf = (message.user === this.props.user) ? 'flex-end' : 'flex-start';
+    const alignSelf = (this.props.message.user === this.props.user) ? 'flex-end' : 'flex-start';
 
     return (
       <div
@@ -39,7 +49,7 @@ export default class Message extends Component {
           color: #333;
           font-size: 0.9em;
           margin: 0 0 1em 0;
-          opacity: ${this.state.clearity/100};
+          opacity: ${this.state.clearity / 10};
           padding: .25em .5em;
           transition: opacity 1s linear;
           width: auto;
@@ -49,8 +59,8 @@ export default class Message extends Component {
           }
       `)}
       >
-        <strong>{message.user}: </strong>
-        {message.content}
+        <strong>{this.props.message.user}: </strong>
+        {this.props.message.content}
       </div>
     );
   }
