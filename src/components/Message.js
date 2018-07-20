@@ -7,16 +7,19 @@ export default class Message extends Component {
 
     this.state = {
       clearity: 10,
+      transition: false,
     }
   }
 
   componentDidMount() {
     const now = Math.floor(Date.now());
     const timestamp = this.props.message.timestamp;
-    const fadeInterval = 10 * 1000; // 10 seconds
-    const clearity = Math.round(10 - (now - timestamp) / fadeInterval);
+    const fadeInterval = 60 * 1000; // 1 minute
+    let clearity = Math.round(10 - (now - timestamp) / fadeInterval);
 
-    console.log(clearity);
+    if (clearity < 0) {
+      clearity = 0;
+    }
 
     this.setState(state => ({
       clearity: clearity,
@@ -33,12 +36,21 @@ export default class Message extends Component {
     if (this.state.clearity > 0) {
       this.setState(state => ({
         clearity: state.clearity - 1,
+        transition: true,
       }));
+    } else {
+      this.setState(state => ({
+        clearity: 0,
+      }));
+
+      clearInterval(this.interval);
     }
   }
 
   render() {
     const alignSelf = (this.props.message.user === this.props.user) ? 'flex-end' : 'flex-start';
+    const opacity = this.state.clearity / 10;
+    const transition = (this.state.transition) ? 'opacity 10s linear' : 'none';
 
     return (
       <div
@@ -49,9 +61,9 @@ export default class Message extends Component {
           color: #333;
           font-size: 0.9em;
           margin: 0 0 1em 0;
-          opacity: ${this.state.clearity / 10};
+          opacity: ${opacity};
           padding: .25em .5em;
-          transition: opacity 1s linear;
+          transition: ${transition};
           width: auto;
 
           @media (min-width: 640px) {

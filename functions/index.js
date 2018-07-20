@@ -5,7 +5,7 @@ const admin = require('firebase-admin');
 
 admin.initializeApp();
 
-const EXPIRE_TIME = 100 * 1000; // 100 seconds
+const EXPIRE_TIME = 10 * 60 * 1000; // 10 minutes
 
 exports.deleteExpiredMessages = functions.database.ref('/messages/{pushId}').onWrite((change) => {
   const ref = change.after.ref.parent;
