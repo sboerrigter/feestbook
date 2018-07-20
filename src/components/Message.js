@@ -74,7 +74,7 @@ export default class Message extends Component {
       `)}
       >
         <strong>{this.props.message.user}: </strong>
-        {autolink(this.props.message.content)}
+        {autolink(this.props.message.content, {target: '_blank'})}
       </div>
     );
   }
